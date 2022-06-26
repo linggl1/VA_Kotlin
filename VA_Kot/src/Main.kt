@@ -8,17 +8,18 @@ import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashSet
 
-fun main(){
+fun main() {
     //Sachbücher erstellen
-    val s1 = Sachbuch("werwiewas","Habermacher", 15.50,254268954100,0)
-    var s2 = Sachbuch("wie werde ich glücklich?","Budda", 67.65, 957896453685, 0)
+    var s1 = Sachbuch("Physik für Techniker", "Günter Simon und Jürgen Zeitler", 40.70, "978-3-446-44953-4", 0)
+    var s2 = Sachbuch("Java lernen in abgeschlossenen Lerneinheiten", "Sebastian Dörn", 30.70, "978-3-658-24002-8", 0)
     //Comics erstellen
-    var c1 = Comic("donald duck", "carl bark",4.75, 467895684580, 0)
-    var c2 = Comic("lucky luke", "Morris",13.70,498654238495,0 )
+    var c1 = Comic("Donald Duck - sein Leben, seine Pleiten", "Walt Disney", 39.90, "978-3-7704-3912-6", 0)
+    var c2 = Comic("Lucky Luke 99", "Achdé Jul", 18.00, "978-3-7704-4127-3", 0)
 
     //zusätzliche Bücher
-    var k1 = Krimi("der tote im moor", "andre petter", 35.20, 254563859675, 0)
-    var r1 = Roman("der name der rose", "umberto eco", 31.35, 568945678953,0)
+    var k1 = Krimi("Sechseläuten", "Michael Theurillat", 12.80, "978-3-548-60944-7", 0)
+    var r1 = Roman("Der Name der Rose", "Umberto Eco", 39.90, "978-3-446-27074-9", 0)
+
 
     //erstellte Bücher in ein Set speichern
     val hashSetBuecher = HashSet<Buch>()
@@ -31,7 +32,7 @@ fun main(){
 
     //Titel ausgeben
     println("Diese Titel sind vorhanden:")
-    for (x in hashSetBuecher){
+    for (x in hashSetBuecher) {
         println("- " + x.titel + ", " + x.verkaufspreis + " CHF")
     }
     println()
@@ -43,33 +44,40 @@ fun main(){
 
     //Preis ändern
     s1.verkaufspreis = 20.45
+    println("--Preis ändern--")
 
     //Preise ausgeben
     println("Die neuen Preise sind:")
-    for (x in hashSetBuecher){
+    for (x in hashSetBuecher) {
         println("- " + x.titel + " kostet " + x.verkaufspreis + " CHF")
     }
     println()
 
     //Warenkorb erstellen
-    val warenkorb = ArrayList<Buch>()
-    warenkorb.add(s2)
-    warenkorb.add(c1)
-    warenkorb.add(k1)
-    warenkorb.add(k1)
     println("--Warenkorb erstellen--")
+    var warenkorb = Warenkorb(ArrayList<Buch>())
+    warenkorb.hinzufuegen(s2)
+    warenkorb.hinzufuegen(c1)
+    warenkorb.hinzufuegen(k1)
+    warenkorb.hinzufuegen(k1)
 
-    //Warenkorbpreis
-    var warenkorbPreis = 0.00
-    for (b in warenkorb){
-        warenkorbPreis = warenkorbPreis + b.verkaufspreis
-    }
-    println("Diese Bücher befinden sich im Warenkorb:")
-    for (b in warenkorb){
-        println(b.titel + ", " + b.verkaufspreis + " CHF")
-    }
-    println("Der Gesamtpreis beträgt " + warenkorbPreis + " CHF")
 
+    //Warenkorb ausgeben
+    println("--Warenkorb anzeigen--")
+    warenkorb.anzeigen()
+
+
+    //Preis anzeigen
+    println("--Warenkorbpreis anzeigen--")
+    //warenkorb.berechnePreis()
+    println("Der Gesamtpreis beträgt " + warenkorb.berechnePreis() + " CHF")
+    println()
+
+    //Rabatt gewähren
+    println("--Warenkorb mit Rabatt--")
+    warenkorb.gewaehreRabatt()
+
+    println()
 
     println("-Ende-")
 

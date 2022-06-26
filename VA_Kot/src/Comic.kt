@@ -1,2 +1,2 @@
-class Comic(titel: String, autor: String, verkaufspreis: Double, ean: Long, rabatt: Int) : Buch(titel, autor, verkaufspreis, ean, rabatt) {
+class Comic(titel: String, autor: String, verkaufspreis: Double, isbn: String, rabatt: Int) : Buch(titel, autor, verkaufspreis, isbn, rabatt) {
 }
