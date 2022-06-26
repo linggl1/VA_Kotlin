@@ -1,3 +1,5 @@
+//Bonus
+
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -22,20 +24,20 @@ class Warenkorb(var liste: ArrayList<Buch>) {
             warenkorbPreis = warenkorbPreis + b.verkaufspreis
         }
         warenkorbPreis = (Math.round(warenkorbPreis * 100.00) / 100.00)
-    //    println("Der Gesamtpreis beträgt " + warenkorbPreis + " CHF")
-    //   println()
+        //    println("Der Gesamtpreis beträgt " + warenkorbPreis + " CHF")
+        //   println()
         return warenkorbPreis
     }
 
-    fun gewaehreRabatt(){
+    fun gewaehreRabatt() {
         var rabatt = 0
         var eingabewert = Scanner(System.`in`)
         do {
-        println("Wie viel Prozent Rabatt möchtest du?")
-        var e = eingabewert.nextInt()
-        if (e >= 100 && rabatt <= 0) {
-            println("dieser Rabatt ist nicht möglich!")
-        } else rabatt = e
+            println("Wie viel Prozent Rabatt möchtest du?")
+            var e = eingabewert.nextInt()
+            if (e >= 100 && rabatt <= 0) {
+                println("dieser Rabatt ist nicht möglich!")
+            } else rabatt = e
         } while (e >= 100 && rabatt <= 0)
 
         println("-Rabatt erfolgreich zugewiesen-")
@@ -44,9 +46,5 @@ class Warenkorb(var liste: ArrayList<Buch>) {
         var warenkorbPreis = this.berechnePreis() - this.berechnePreis() * rabatt / 100
 
         println("Der Gesamtpreis inkl. " + rabatt + "% Rabatt beträgt " + warenkorbPreis + " CHF")
-
-
-
     }
-
 }

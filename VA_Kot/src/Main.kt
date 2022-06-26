@@ -1,9 +1,3 @@
-/*
-fun main(){
-    println("test")
-}
-*/
-
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashSet
@@ -52,6 +46,8 @@ fun main() {
         println("- " + x.titel + " kostet " + x.verkaufspreis + " CHF")
     }
     println()
+
+    //Bonus
 
     //Warenkorb erstellen
     println("--Warenkorb erstellen--")
